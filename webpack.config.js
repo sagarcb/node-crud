@@ -1,20 +1,13 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-    entry: './server.js',
+    target: 'node', // Set target to Node.js
+    entry: './index.js', // Your main entry file
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
     },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
-            }
-        ]
-    }
+    externals: [nodeExternals()], // Exclude Node.js core modules and dependencies
+    // Add more configuration options as needed
 };
