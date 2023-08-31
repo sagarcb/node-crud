@@ -1,5 +1,6 @@
 {
   "build": {
-    "target": "serverless"
+    "target": "serverless",
+    "rewrites": [{ "source": "/(.*)", "destination": "/" }]
   }
 }
